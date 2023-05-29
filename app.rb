@@ -1,6 +1,6 @@
 require 'sinatra'
-require 'sequel'
 require 'json'
+require_relative 'db/schema'
 
 before do
     content_type 'application/json'
