@@ -10,9 +10,11 @@ DB = Sequel.connect(
 
 DB.create_table? :users do
   primary_key :id
+  Integer   :role_id
+  String    :code
   String    :first_name, size: 50
   String    :last_name, size: 50
-  Integer   :role_id
+  Integer   :current_location
   DateTime  :created_at
   DateTime  :updated_at
   String    :user_email
@@ -134,3 +136,30 @@ DB.create_table? :rides_states do
   String :name
   String :description
 end
+
+# foreign keys
+# DB.alter_table(:users) do
+#   add_foreign_key :role_id, :roles
+# end
+
+# DB.create_table? :drivers do
+#   primary_key :id
+#   String    :first_name, size: 50
+#   String    :last_name, size: 50
+#   String    :code
+#   Integer   :current_location
+#   DateTime  :created_at
+#   DateTime  :updated_at
+#   Integer   :user_id
+# end
+
+# DB.create_table? :riders do
+#   primary_key :id
+#   String    :first_name, size: 50
+#   String    :last_name, size: 50
+#   String    :code
+#   Integer   :current_location
+#   DateTime  :created_at
+#   DateTime  :updated_at  
+#   Integer   :user_id
+# end
